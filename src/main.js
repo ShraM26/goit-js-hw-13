@@ -32,7 +32,7 @@ const iziToastErr = {
 };
 
 const iziToastInfo = {
-  message: 'Sorry, you have reached the end of search results.',
+  message: 'We're sorry, but you've reached the end of search results.',
   backgroundColor: 'orange',
   messageColor: 'white',
   position: 'topRight',
