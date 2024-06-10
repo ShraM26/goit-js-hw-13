@@ -91,6 +91,8 @@ async function getImages(event) {
     });
     return;
   }
+
+  showLoadMoreBtn(false);
   showLoader(true);
 
   try {
@@ -101,7 +103,7 @@ async function getImages(event) {
       showLoadMoreBtn(false);
     } else {
       const markup = imagesTemplate(data.hits);
-      imagesList.innerHTML = markup;
+      imagesList.insertAdjacentHTML('beforeend', markup);
       lightbox.refresh();
     }
 
@@ -131,7 +133,7 @@ async function imagesMore() {
   try {
     const data = await searchImage(query, page);
     const markup = imagesTemplate(data.hits);
-    imagesList.innerHTML += markup;
+    imagesList.insertAdjacentHTML('beforeend', markup);
     lightbox.refresh();
 
     if (page >= totalPages) {
