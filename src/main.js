@@ -64,6 +64,14 @@ function showLoadMoreBtn(show) {
   // console.log(`LoadMoreBtn classlist: ${loadMoreBtn.classList}`);
 }
 
+function showLoader(show) {
+  if (show) {
+    loader.classList.remove('is-hidden');
+  } else {
+    loader.classList.add('is-hidden');
+  }
+}
+
 let page = 1;
 let totalPages = 0;
 let query = '';
@@ -83,6 +91,7 @@ async function getImages(event) {
     });
     return;
   }
+  showLoader(true);
 
   try {
     const data = await searchImage(query, page);
@@ -96,9 +105,8 @@ async function getImages(event) {
       lightbox.refresh();
     }
 
-    loader.classList.add('is-hidden');
-
     totalPages = Math.ceil(data.totalHits / 15);
+    // console.log(`total pages: ${totalPages}`);
 
     if (totalPages > 1) {
       showLoadMoreBtn(true);
@@ -108,6 +116,8 @@ async function getImages(event) {
   } catch (error) {
     iziToast.show(iziToastErr);
     showLoadMoreBtn(false);
+  } finally {
+    showLoader(false);
   }
 
   formElem.reset();
@@ -115,6 +125,8 @@ async function getImages(event) {
 
 async function imagesMore() {
   page += 1;
+
+  showLoader(true);
 
   try {
     const data = await searchImage(query, page);
@@ -127,6 +139,12 @@ async function imagesMore() {
       iziToast.info(iziToastInfo);
     }
   } catch (error) {
+    // console.log(error);
     iziToast.show(iziToastErr);
+  } finally {
+    showLoader(false);
+    if (page < totalPages) {
+      showLoadMoreBtn(true);
+    }
   }
 }
