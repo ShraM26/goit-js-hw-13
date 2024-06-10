@@ -55,13 +55,13 @@ formElem.addEventListener('submit', getImages);
 loadMoreBtn.addEventListener('click', imagesMore);
 
 function showLoadMoreBtn(show) {
-  console.log(`showLoadMoreBtn called with show=${show}`);
+  // console.log(`showLoadMoreBtn called with show=${show}`);
   if (show) {
     loadMoreBtn.classList.remove('is-hidden');
   } else {
     loadMoreBtn.classList.add('is-hidden');
   }
-  console.log(`LoadMoreBtn classlist: ${loadMoreBtn.classList}`);
+  // console.log(`LoadMoreBtn classlist: ${loadMoreBtn.classList}`);
 }
 
 let page = 1;
