@@ -32,7 +32,7 @@ const iziToastErr = {
 };
 
 const iziToastInfo = {
-  message: 'We're sorry, but you've reached the end of search results.',
+  message: "We're sorry, but you've reached the end of search results.",
   backgroundColor: 'orange',
   messageColor: 'white',
   position: 'topRight',
@@ -58,10 +58,8 @@ function showLoadMoreBtn(show) {
   console.log(`showLoadMoreBtn called with show=${show}`);
   if (show) {
     loadMoreBtn.classList.remove('is-hidden');
-    loadMoreBtn.style.display = 'block';
   } else {
     loadMoreBtn.classList.add('is-hidden');
-    loadMoreBtn.style.display = 'none';
   }
   console.log(`LoadMoreBtn classlist: ${loadMoreBtn.classList}`);
 }

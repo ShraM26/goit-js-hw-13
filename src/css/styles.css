@@ -124,11 +124,8 @@
   margin-top: 20px;
 }
 
-.is-hidden {
-  display: none;
-}
-
 .more-btn {
+  display: block;
   border-radius: 8px;
   padding: 8px 16px;
   width: 125px;
@@ -141,6 +138,9 @@
   margin-top: 20px;
 }
 
+.is-hidden {
+  display: none;
+}
 
 .more-btn:hover {
   background: #6c8cff;
